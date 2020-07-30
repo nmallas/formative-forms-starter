@@ -1,0 +1,20 @@
+extends layout.pug
+
+mixin fields(name, title, type, value)
+    label(for=name)=title
+    input(type=type name=name, value=value)
+
+
+
+block content
+    if errors
+        include includes/errors.pug
+    include includes/form-inputs.pug
+    //- form(action="/create" method="post")
+    //-     input(type="hidden" name="_csrf" value=csrfToken)
+    //-     +fields("firstName", "First Name:", "text", data.firstName)
+    //-     +fields("lastName", "Last Name:", "text", data.lastName)
+    //-     +fields("email", "Email:", "email", data.email)
+    //-     +fields("password", "Password:", "password", data.password)
+    //-     +fields("confirmedPassword", "Confirm Password:", "password", data.confirmedPassword)
+        //- input(type="submit" name="submit" value="Create User")

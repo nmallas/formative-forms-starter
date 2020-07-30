@@ -1,0 +1,14 @@
+form(action="/create" method="post")
+    input(type="hidden" name="_csrf" value=csrfToken)
+    +fields("firstName", "First Name:", "text", data.firstName)
+    +fields("lastName", "Last Name:", "text", data.lastName)
+    +fields("email", "Email:", "email", data.email)
+    +fields("password", "Password:", "password", data.password)
+    +fields("confirmedPassword", "Confirm Password:", "password", data.confirmedPassword)
+    if interesting
+        +fields("age", "Age:", "number", data.age)
+        label(for="favoriteBeatle")
+        select(name="favoriteBeatle", value="")
+            each val in ['John', 'Paul', 'Ringo', 'George', 'Scooby-Doo']
+                option(value=val)=val
+    input(type="submit" name="submit" value="Create User")
